@@ -52,10 +52,10 @@ public class LoginServlet extends HttpServlet {
 							ArrayList<Corso> corsCat =	cs.visualizzaCorsiPerCategoria(idCategoria);
 							corsi.add(corsCat);					
 						}
-
+						
 						request.setAttribute("categorie", categorie);
 						request.setAttribute("corsi", corsi);
-					} catch (DAOException e) {
+					} catch (Exception e) {
 						request.setAttribute("errore", e.getMessage());
 						RequestDispatcher rdwrong = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
 						rdwrong.forward(request, response);
@@ -78,7 +78,7 @@ public class LoginServlet extends HttpServlet {
 						return;
 					}
 				
-			} catch (ConnessioneException | SQLException e) {
+			} catch (Exception e) {
 				request.setAttribute("errore", e.getMessage());
 				RequestDispatcher rdwrong = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
 				rdwrong.forward(request, response);
