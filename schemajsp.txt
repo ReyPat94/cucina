@@ -1,0 +1,25 @@
+index. <-----------	catalogo.
+			
+register. 
+
+login.
+usrnam
+pssw
+adnim?
+
+userpage. <--------- logout 
+	  <--------- updatepage.
+
+catalogo. <--------- carrello. <------- iscrizione ai corsi nel carrello
+
+mieiCorsi.(+feedbacks)
+calendario.
+
+
+
+
+adminpage. <--------- logout <------- updatepage.
+	   <--------- updatepage.
+
+inserisci roba./cancella roba./updata roba.
+
