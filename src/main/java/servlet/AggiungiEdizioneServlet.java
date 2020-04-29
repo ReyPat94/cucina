@@ -20,6 +20,7 @@ public class AggiungiEdizioneServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
 		String messaggio = "";
 		int idCorso = Integer.parseInt(request.getParameter("idCorso"));
 		Date dataDiInizio = Date.valueOf(request.getParameter("dataDiInizio"));
