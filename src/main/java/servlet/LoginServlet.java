@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		if (accesstype.equals("admin")) {
-			try {
+			
 				try (AmministratoreDAO daoA = new AmministratoreDAOImpl()) {
 					Utente admin = daoA.select(username);
 
@@ -54,15 +54,16 @@ public class LoginServlet extends HttpServlet {
 						RequestDispatcher rdwrong = request.getRequestDispatcher("login.jsp");
 						rdwrong.forward(request, response);
 					}
-				}
+				
 			} catch (ConnessioneException | SQLException e) {
-				e.printStackTrace(); // ???
+				request.setAttribute("errore", e.getMessage());
+				RequestDispatcher rdwrong = request.getRequestDispatcher("login.jsp");
+				rdwrong.forward(request, response);
 			}
 
 		}
 
 		try {
-			
 			Utente matchingUtente = new UtenteServiceImpl().checkCredenziali(username, password);
 			session.setAttribute("utente", matchingUtente);
 			
@@ -70,29 +71,20 @@ public class LoginServlet extends HttpServlet {
 			ArrayList<Edizione> edizioni = daou.selectIscrizioniUtente(matchingUtente.getIdUtente());
 			session.setAttribute("leMieEdizioni", edizioni);
 
-			try (CatalogoDAO daoc = new CatalogoDAOImpl()) {
-				ArrayList<Corso> catalogo = daoc.select();
-				session.setAttribute("catalogo", catalogo);
+//			try (CatalogoDAO daoc = new CatalogoDAOImpl()) {
+//				ArrayList<Corso> catalogo = daoc.select();
+//				session.setAttribute("catalogo", catalogo);
 
 				RequestDispatcher rdright = request.getRequestDispatcher("userpage.jsp");
 				rdright.forward(request, response);
-			}
+//			}
 		} catch (Exception e) {
-			if (e instanceof IllegalArgumentException) {
-				String errore = "Password non corretta";
-				request.setAttribute("errore", errore);
-
-			} else if (e instanceof DAOException) {
-				String errore = "Utente non esiste";
-				request.setAttribute("errore", errore);
+				request.setAttribute("errore", e.getMessage());
+			
+				RequestDispatcher rdwrong = request.getRequestDispatcher("login.jsp");
+				rdwrong.forward(request, response);
 			}
-//			SQLException e ConnessioneException non sono gestite dal catch
-
-			RequestDispatcher rdwrong = request.getRequestDispatcher("login.jsp");
-			rdwrong.forward(request, response);
 		}
-
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
