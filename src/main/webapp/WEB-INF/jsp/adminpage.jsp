@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,35 +7,53 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>Hweilà, bienvenido administrador!</div>
-<br>
+	<div>Hweilà, bienvenido administrador!</div>
+	<br>
 
-<a href="Logout"><button>Logout</button></a>
+	<a href="Logout"><button>Logout</button></a>
 
-<a href=""><button>Modifica dati administrador</button></a>
+	<a href=""><button>Modifica dati administrador</button></a>
 
-<br>
-<hr>
-<br>
-<a href=''><button type='button'>Crea nuova categoria</button></a>
-<br><br>
-<a href=''><button type='button'>Crea nuovo corso</button></a>
-<br><br>
-<a href=''><button type='button'>Modifica corso</button></a>
-<br><br>
-<a href=''><button type='button'>Aggiungi nuova edizione</button></a>
-<br><br>
-<a href=''><button type='button'>Modifica edizione</button></a>
-<br><br>
-<a href=''><button type='button'>Elimina edizione</button></a>
+	<br>
+	<hr>
+	<br>
+
+	<h2>Catalogo</h2>
+	<br>
+	<hr>
+	<br>
+	<ul>
+		<c:forEach var="i" begin="1" end="${categorie.size()}">
+
+			<li>${categorie.get(i-1).descrizione}
+				<ul>
+					<c:forEach var="j" begin="1" end="${corsi.get(i-1).size()}">
+						<li>${corsi.get(i-1).get(j-1).titolo}<a href=''><button
+									type='button'>Visualizza edizioni corso</button></a> <a href=''><button
+									type='button'>Modifica corso</button></a>
+						</li>
+					</c:forEach>
+				</ul>
+			</li>
+
+		</c:forEach>
+	</ul>
+	<br>
+	<a href='AccessoPagina?url=jsp/creaCategoria.jsp'><button
+			type='button'>Crea nuova categoria</button></a>
+	<br>
+	<a href='AccessoPagina?url=jsp/creaCorso.jsp'><button type='button'>Crea
+			nuovo Corso</button></a>
 
 
-<br>
-<br>
-<hr>
-<br>
-<br>
-<br>
-<a href='AccessoPagina?url=jsp/index.jsp'><button type='button'>Back to Index</button></a>
+
+	<br>
+	<br>
+	<hr>
+	<br>
+	<br>
+	<br>
+	<a href='AccessoPagina?url=jsp/index.jsp'><button type='button'>Back
+			to Index</button></a>
 </body>
 </html>
