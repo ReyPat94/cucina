@@ -78,6 +78,15 @@
 		</tr>
 	</table>
    </form>
+   <br>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<br>
+<a href='AccessoPagina?url=jsp/index.jsp'><button type='button'>Back to Index</button></a>
+		
   </body>
 </html>
 
