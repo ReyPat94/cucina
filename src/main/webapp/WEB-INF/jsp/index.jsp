@@ -12,12 +12,9 @@
 
 <h1> Benvenuto in Scuola Cucina11!</h1>
 
-<a href='AccessoPagina?url=jsp/registraUtente.jsp'><button type='button'>LOGIN</button></a>
+<a href='AccessoPagina?url=jsp/registraUtente.jsp'><button type='button'>Registrati</button></a>
 
-
-
-
-<jsp:include page="registraUtente.jsp"/>
+<a href='AccessoPagina?url=jsp/login.jsp'><button type='button'>Login</button></a>
 
 
 
