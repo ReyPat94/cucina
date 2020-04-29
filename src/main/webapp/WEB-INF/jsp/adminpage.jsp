@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	<%@  taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -28,9 +29,9 @@
 			<li>${categorie.get(i-1).descrizione}
 				<ul>
 					<c:forEach var="j" begin="1" end="${corsi.get(i-1).size()}">
-						<li>${corsi.get(i-1).get(j-1).titolo}<a href=''><button
-									type='button'>Visualizza edizioni corso</button></a> <a href=''><button
-									type='button'>Modifica corso</button></a>
+						<li>${corsi.get(i-1).get(j-1).titolo}
+									<a href='/CalendarioServlet?corso=${corsi.get(i-1).get(j-1).codice}'><button type='button'>Visualizza edizioni corso</button></a> 
+									<a href=''><button type='button'>Modifica corso</button></a>
 						</li>
 					</c:forEach>
 				</ul>
@@ -38,6 +39,7 @@
 
 		</c:forEach>
 	</ul>
+	<hr>
 	<br>
 	<a href='AccessoPagina?url=jsp/creaCategoria.jsp'><button
 			type='button'>Crea nuova categoria</button></a>
