@@ -20,24 +20,24 @@
 <br>
 						<form action='/aggiungiEdizione' method='get'> <!-- PATH CORRETTO -->
 							<div>
-								<label for='usrn'> ID Corso </label> <input id='usrn'
-									value='${userID}' name='userID' required>
+								<label for='idCorso'> ID Corso </label> <input id='usrn'
+									value='${idCorso}' name='idCorso' required>
 							</div>				
 							<div>
-								<label for='birthdate'> Data di inizio </label> <input
+								<label for='dataDiInizio'> Data di inizio </label> <input
 									id='dataDiInizio' type="date" name='dataDiInizio'
 									value='${dataDiInizio}' required>
 							</div>
 							<div>
-								<label for='usrn'> Durata </label> <input id='usrn'
+								<label for='durata'> Durata </label> <input id='usrn'
 									value='${durata}' name='durata' required>
 							</div>
 							<div>
-								<label for='usrn'> Aula </label> <input id='usrn'
+								<label for='aula'> Aula </label> <input id='usrn'
 									value='${aula}' name='aula' required>
 							</div>
 							<div>
-								<label for='usrn'> Docente </label> <input id='usrn'
+								<label for='docente'> Docente </label> <input id='usrn'
 									value='${docente}' name='docente' required>
 							</div>
 								<button type="submit" class="button">Aggiungi Edizione</button>
