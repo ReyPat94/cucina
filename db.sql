@@ -103,7 +103,7 @@ ALTER TABLE `cucina`.`calendario` ADD INDEX delCorso (id_corso );
 CREATE TABLE `catalogo` 
 (
 	`id_corso` integer (11) NOT NULL AUTO_INCREMENT , 
-	`titolo` unique varchar (50), 
+	`titolo` varchar (50), 
 	`id_categoria` integer (11), 
 	`numeroMaxPartecipanti` integer (11), 
 	`costo` double (13,2), 
@@ -350,4 +350,4 @@ ALTER TABLE `iscritti` ADD CONSTRAINT allEdizione FOREIGN KEY (id_edizione) REFE
 --
 SET FOREIGN_KEY_CHECKS=1;
 -- GO
-
+commit;

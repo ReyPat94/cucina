@@ -16,7 +16,7 @@ public class IscrizioneUtenteDAOImpl implements IscrizioneUtenteDAO {
 	private static final String SET_ISCRIZIONE = "INSERT INTO iscritti (id_edizione, id_utente)"
 			+ " values(?, ?)";
 	private static final String DELETE_ISCRIZIONE = "DELETE FROM iscritti" + "WHERE id_edizione = ? and id_utente= ?";
-	private static final String GET_UTENTE_EDIZIONI = "SELECT id_edizione,  id_corso, dataInizio, durata"
+	private static final String GET_UTENTE_EDIZIONI = "SELECT id_edizione,  id_corso, dataInizio, durata "
 			+ "aula, docente FROM iscritti "
 			+ "JOIN calendario USING(id_edizione)"
 			+ " WHERE id_utente= ?";
