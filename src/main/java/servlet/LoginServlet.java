@@ -53,8 +53,8 @@ public class LoginServlet extends HttpServlet {
 							corsi.add(corsCat);					
 						}
 						
-						request.setAttribute("categorie", categorie);
-						request.setAttribute("corsi", corsi);
+						session.setAttribute("categorie", categorie);
+						session.setAttribute("corsi", corsi);
 					} catch (Exception e) {
 						request.setAttribute("errore", e.getMessage());
 						RequestDispatcher rdwrong = request.getRequestDispatcher("WEB-INF/jsp/login.jsp");
