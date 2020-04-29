@@ -16,8 +16,8 @@ import exceptions.ConnessioneException;
 
 public class CatalogoDAOImpl implements CatalogoDAO {
 
-	private static final String GET_CORSI_CATEGORIA = "SELECT id_corso, titolo, id_categoria, numeroMaxPartecipanti, costo, descrizione "
-			+ "FROM catalogo JOIN categoria USING(id_categoria) WHERE id_corso = ?";
+	private static final String GET_CORSI_CATEGORIA = "SELECT id_corso, titolo, id_categoria, numeroMaxPartecipanti, costo, e.descrizione "
+			+ "FROM catalogo e JOIN categoria USING(id_categoria) WHERE id_categoria = ?";
 
 	private Connection conn;
 
