@@ -10,7 +10,7 @@
 <div>Hweilà, bienvenido amigo!</div>
 
 <a href=""><button>Logout</button></a>
-<a href=""><button>I miei corsi</button></a>
+<a href=""><button>Le mie Edizioni</button></a>
 <a href=""><button>Catalogo</button></a>
 <a href=""><button>Modifica dati utente</button></a>
 </body>

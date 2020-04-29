@@ -69,11 +69,12 @@ public class UtenteServiceImpl implements UtenteService {
 			result = daoU.select(u);
 			if (result.getPassword().equals(u.getPassword())) {
 				return result;
+			}else {
+				throw new IllegalArgumentException("Password sbagliata");
 			}
 		} catch (SQLException e) {
 			throw new DAOException("User doesn't exit", e);
 		}
-		return result; // useless
 	}
 
 	/*
