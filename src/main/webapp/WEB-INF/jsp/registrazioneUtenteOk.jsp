@@ -8,6 +8,12 @@
 </head>
 <body>
 
-registrazione avvenuta con successo
+
+Registrazione avvenuta con successo
+
+<br>
+<hr>
+<jsp:include page="login.jsp"/>
+
 </body>
 </html>
