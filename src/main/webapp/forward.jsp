@@ -1,1 +1,1 @@
-<jsp:forward page="/WEB-INF/jsp/adminCatalogo.jsp"></jsp:forward>
+<jsp:forward page="/WEB-INF/jsp/login.jsp"></jsp:forward>

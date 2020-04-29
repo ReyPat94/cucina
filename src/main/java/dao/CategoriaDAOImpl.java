@@ -92,7 +92,7 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 		ArrayList<Categoria> categorie = new ArrayList<Categoria>();
 		
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM categorie");
+		ResultSet rs = stmt.executeQuery("SELECT * FROM categoria");
 		
 		while (rs.next()) {
 			int id = rs.getInt(1);

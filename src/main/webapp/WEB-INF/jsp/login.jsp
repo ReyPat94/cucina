@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<p>
+${errore}</p>
+
 	<h1>Welcome to Login</h1>
 	<form action="Login" method="post">
 		<label for="usrn">Username</label> <input id="usrn" name="usrn">
@@ -18,7 +21,7 @@
 		<input type="radio" id="admin" name="accesstype" value="admin">
 		<label for="fadmin">Admin</label><br>
 		
-	<button type='button'>Invia</button>
+	<button type='submit'>Invia</button>
 	</form>
 	<br>
 	<br>
