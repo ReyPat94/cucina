@@ -8,7 +8,7 @@ import entity.Edizione;
 import exceptions.ConnessioneException;
 
 
-public interface CalendarioDAO {
+public interface CalendarioDAO extends AutoCloseable {
 
 	void insert(Edizione e) throws SQLException;
 	void delete(int idEdizione) throws SQLException;

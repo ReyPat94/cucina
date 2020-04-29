@@ -6,7 +6,7 @@ import entity.Categoria;
 import entity.Corso;
 import entity.Feedback;
 
-public interface CatalogoDAO extends AutoCloseable{
+public interface CatalogoDAO extends AutoCloseable {
 	ArrayList<Corso> getCorsiCategoria(int idCategoria)throws SQLException;
 	void insert(Corso corso) throws SQLException;
 	void update(Corso corso) throws SQLException;
