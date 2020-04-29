@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 import java.sql.Date;
 
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import entity.Edizione;
 import service.EdizioneServiceImpl;
 
-@WebServlet("/AggiungiEdizione")
-public class AggiungiEdizioneServlet extends HttpServlet {
+@WebServlet("/ModificaEdizione")
+public class ModificaEdizioneServlet  extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,9 +27,9 @@ public class AggiungiEdizioneServlet extends HttpServlet {
 		String aula = request.getParameter("aula");
 		String docente = request.getParameter("docente");
 		Edizione ed = new Edizione(idCorso, dataDiInizio, durata, aula, docente);
-		messaggio = "Edizione aggiunta con successo";
+		messaggio = "Edizione modificata con successo";
 		try {
-			new EdizioneServiceImpl().inserisciEdizione(ed);
+			new EdizioneServiceImpl().modificaEdizione(ed);
 		} catch (Exception e) {
 			messaggio = e.getMessage();
 		} finally {

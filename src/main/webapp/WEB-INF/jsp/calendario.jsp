@@ -21,14 +21,16 @@
 
 <c:forEach items = "${calendario}" var= "edizione"> <!-- SISTEMA CON ATTR NOTO -->
 <a href='/EliminaEdizione?edizione=${edizione.idEdizione}'><button type='button'>Elimina edizione</button></a>
+<br><br>
+<a href='/ModificaEdizione?edizione=${edizione.idEdizione}'><button type='button'>Modifica edizione</button></a>
+<br><br>
 </c:forEach>
 <br><br>
 
 <a href='/AccessoPagina?url=jsp/aggiungiEdizione.jsp'><button type='button'>Aggiungi nuova edizione</button></a>
 <br><br>
 
-<a href='/ModificaEdizione?edizione=${edizione.idEdizione}'><button type='button'>Modifica edizione</button></a>
-<br><br>
+
 
 <br>
 <br>
