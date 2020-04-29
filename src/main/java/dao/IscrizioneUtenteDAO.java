@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import entity.Edizione;
 import entity.Utente;
 
-public interface IscrizioneUtenteDAO {
+public interface IscrizioneUtenteDAO extends AutoCloseable {
 
 	void iscriviUtente(int idEdizione, String idUtente) throws SQLException;
 	void cancellaIscrizioneUtente(int idEdizione, String idUtente) throws SQLException;
