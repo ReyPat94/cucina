@@ -23,7 +23,6 @@ import entity.Edizione;
 public class JSONuserpageAnni extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -32,6 +31,8 @@ public class JSONuserpageAnni extends HttpServlet {
 		try (CalendarioDAO daoC = new CalendarioDAOImpl()) {
 			ArrayList<Edizione> edizioni = daoC.select();
 			for (Edizione edit : edizioni) {
+
+
 				Date date = edit.getDataInizio();
 				DateFormat dateFormat = new SimpleDateFormat("yyyy");
 				String strDate = dateFormat.format(date);

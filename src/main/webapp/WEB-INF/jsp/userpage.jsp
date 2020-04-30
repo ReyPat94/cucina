@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <%--JavaScript --%>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!--     <script defer> 
    $('#options').change(function allYears(){
         $.getJSON("/JSONuserpageAnni", function(anniList){
@@ -44,7 +45,7 @@ Visualizza i corsi per:
 </select>
 <br>
 
-<div id="anno"></div>						  	<%-- collega a "view" --%> 
+<div id="anno"></div>						  	<%-- collega a "options" --%> 
 
 <hr>
 <p>Scheda corso selezionato con ajax</p> 
