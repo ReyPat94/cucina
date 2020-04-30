@@ -33,8 +33,6 @@
 <a href=""><button>Logout</button></a> <br>
 <a href=""><button>I corsi ai quali sei iscritta/o</button></a><br>
 
-<button onclick="allYears();">Anno</button>
-
 Visualizza i corsi per:
 <select id="options" onchange="allYears()">
   <option > Seleziona </option>
@@ -80,9 +78,8 @@ Visualizza i corsi per:
       <script>
    function allYears(){
         $.getJSON("JSONuserpageAnni", function(anniList){
-            var ul = $("<div>").appendTo($("#anno"));
             $.each(anniList, function(index, item) {
-            $("<button type='button' name = 'choice' value = " + item + " >").text(item).appendTo(ul);
+            $("<button type='button' name = 'choice' value = " + item + " >").text(item).appendTo("#anno");
             })
         });
     }

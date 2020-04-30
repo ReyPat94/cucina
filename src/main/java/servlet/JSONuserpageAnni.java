@@ -32,10 +32,9 @@ public class JSONuserpageAnni extends HttpServlet {
 			ArrayList<Edizione> edizioni = daoC.select();
 			for (Edizione edit : edizioni) {
 
-
 				Date date = edit.getDataInizio();
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-				String strDate = dateFormat.format(date); // ctrl
+				DateFormat dateFormat = new SimpleDateFormat("yyyy");
+				String strDate = dateFormat.format(date); 
 				anni.add(strDate);
 			}
 			
