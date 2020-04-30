@@ -19,15 +19,21 @@
 <hr>
 <br>
 
+<ul>
 <c:forEach items = "${calendario}" var= "edizioneDTO"> <!-- SISTEMA CON ATTR NOTO -->
-<a href='/EliminaEdizione?edizione=${edizioneDTO.edizione.idEdizione}'><button type='button'>Elimina edizione</button></a>
+<li>
+${edizioneDTO.edizione.codice}, ${edizioneDTO.edizione.idCorso},  ${edizioneDTO.edizione.dataInizio},  ${edizioneDTO.edizione.idCorso},
+ ${edizioneDTO.edizione.durata}, ${edizioneDTO.edizione.aula}, ${edizioneDTO.edizione.docente}
+</li>
+<a href='EliminaEdizione?edizione=${edizioneDTO.edizione.codice}'><button type='button'>Elimina edizione</button></a>
 <br><br>
-<a href='/ModificaEdizione?edizione=${edizioneDTO.edizione.idEdizione}'><button type='button'>Modifica edizione</button></a>
+<a href='ModificaEdizione?edizione=${edizioneDTO.edizione.codice}'><button type='button'>Modifica edizione</button></a>
 <br><br>
 </c:forEach>
+</ul>
 <br><br>
 
-<a href='/AccessoPagina?url=jsp/aggiungiEdizione.jsp'><button type='button'>Aggiungi nuova edizione</button></a>
+<a href='AccessoPagina?url=jsp/aggiungiEdizione.jsp'><button type='button'>Aggiungi nuova edizione</button></a>
 <br><br>
 
 

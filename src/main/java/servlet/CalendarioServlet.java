@@ -30,7 +30,7 @@ public class CalendarioServlet extends HttpServlet {
 			String messaggio = e.getMessage();
 			request.setAttribute("Messaggio", messaggio);
 		} finally {
-			RequestDispatcher rdright = request.getRequestDispatcher("/WEB-INF/jsp/adminpage.jsp");
+			RequestDispatcher rdright = request.getRequestDispatcher("/WEB-INF/jsp/calendario.jsp");
 			rdright.forward(request, response);
 		}
 

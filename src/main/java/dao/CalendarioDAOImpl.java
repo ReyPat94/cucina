@@ -14,7 +14,7 @@ import exceptions.ConnessioneException;
 public class CalendarioDAOImpl implements CalendarioDAO {
 
 	private Connection conn;
-	private static final String GET_EDIZIONI_CORSO = "select * from calendario, catalogo where calendario.id_corso = catalogo.id_corso and id_corso=?";
+	private static final String GET_EDIZIONI_CORSO = "SELECT id_corso, id_edizione, dataInizio, durata, aula, docente FROM calendario JOIN catalogo USING(id_corso) WHERE id_corso = ?";
 
 	public CalendarioDAOImpl() throws ConnessioneException {
 		conn = SingletonConnection.getInstance();
