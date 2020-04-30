@@ -31,7 +31,7 @@ public class CatalogoDAOImpl implements CatalogoDAO {
 	@Override
 	public void insert(Corso corso) throws SQLException {
 		PreparedStatement stmt = conn.prepareStatement(
-				"INSERT into catalogo( titolo, id_categoria, numeroMaxPartecipanti, costo, descrizione) values( ?, ?, ?, ?, ?)");
+				"INSERT into catalogo (titolo, id_categoria, numeroMaxPartecipanti, costo, descrizione) values( ?, ?, ?, ?, ?)");
 		stmt.setString(1, corso.getTitolo());
 		stmt.setInt(2, corso.getIdCategoria());
 		stmt.setInt(3, corso.getMaxPartecipanti());
@@ -48,19 +48,19 @@ public class CatalogoDAOImpl implements CatalogoDAO {
 	@Override
 	public void update(Corso corso) throws SQLException {
 		PreparedStatement stmt = conn.prepareStatement(
-				"UPDATE catalogo SET titolo = ?, id_categoria = ?,  numeroMaxPartecipanti = ?,  costo = ?,  descrizione = ? WHERE id_corso = ?");
-		ArrayList<Corso> allcourses = select();
-		if (allcourses.contains(corso)) {
+				"UPDATE catalogo SET titolo = ?, id_categoria = ?,  numeroMaxPartecipanti = ?, "
+				+ " costo = ?,  descrizione = ? WHERE id_corso = ?");
+		
 			stmt.setInt(6, corso.getCodice());
 			stmt.setString(1, corso.getTitolo());
 			stmt.setInt(2, corso.getIdCategoria());
 			stmt.setInt(3, corso.getMaxPartecipanti());
 			stmt.setDouble(4, corso.getCosto());
 			stmt.setString(5, corso.getDescrizione());
-		} else {
-			throw new SQLException("Il corso che vuoi UPDATE non esiste.");
+			int n = stmt.executeUpdate();
+			if(n==0)
+			throw new SQLException("Il corso che vuoi modificare non esiste.");
 		}
-	}
 
 	/*
 	 * cancellazione di un nuovo corso nel catalogo dei corsi questo potr� essere

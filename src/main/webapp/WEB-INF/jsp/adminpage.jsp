@@ -18,9 +18,10 @@
 	<br>
 	<hr>
 	<br>
+	<p>${messaggio}</p>
+<hr>
 
 	<h2>Catalogo</h2>
-	<br>
 	<hr>
 	<br>
 	<ul>
@@ -30,8 +31,8 @@
 				<ul>
 					<c:forEach var="j" begin="1" end="${corsi.get(i-1).size()}">
 						<li>${corsi.get(i-1).get(j-1).titolo}
-									<a href='/CalendarioServlet?corso=${corsi.get(i-1).get(j-1).codice}'><button type='button'>Visualizza edizioni corso</button></a> 
-									<a href=''><button type='button'>Modifica corso</button></a>
+									<a href='CalendarioServlet?corso=${corsi.get(i-1).get(j-1).codice}'><button type='button'>Visualizza edizioni corso</button></a> 
+									<a href='ModificaCorso?set=first&corsoCodice=${corsi.get(i-1).get(j-1).codice}'><button type='button'>Modifica corso</button></a>
 						</li>
 					</c:forEach>
 				</ul>

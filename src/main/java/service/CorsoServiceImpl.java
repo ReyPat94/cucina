@@ -55,7 +55,7 @@ public class CorsoServiceImpl implements CorsoService {
 		try {
 			return daoC.select();
 		} catch (SQLException e) {
-			throw new DAOException("Errore nel recuperare o leggere i dati", e);
+			throw new DAOException("Errore nel recuperare o leggere i dati - " + e.getMessage(), e);
 
 		}
 	}
@@ -70,7 +70,7 @@ public class CorsoServiceImpl implements CorsoService {
 		try {
 			corsiCategoria = daoC.getCorsiCategoria(idCategoria);
 		} catch (SQLException e) {
-			throw new DAOException("Errore nel recuperare o leggere i dati", e);
+			throw new DAOException("Errore nel recuperare o leggere i dati - " + e.getMessage(), e);
 		}
 
 		return corsiCategoria;
@@ -87,7 +87,7 @@ public class CorsoServiceImpl implements CorsoService {
 		try {
 			categorie = daoCat.select();
 		} catch (SQLException e) {
-			throw new DAOException("Errore nel recuperare o leggere i dati", e);
+			throw new DAOException("Errore nel recuperare o leggere i dati - " + e.getMessage(), e);
 		}
 		return categorie;
 	}
@@ -102,7 +102,7 @@ public class CorsoServiceImpl implements CorsoService {
 		try {
 			daoCat.insert(descrizione);
 		} catch (SQLException e) {
-			throw new DAOException("Errore nell'inserire i dati", e);
+			throw new DAOException("Errore nell'inserire i dati - " + e.getMessage(), e);
 		}
 		return;
 
@@ -133,7 +133,7 @@ public class CorsoServiceImpl implements CorsoService {
 			corsoDTO = new CorsoDTO(corso, edizioniDTO);
 
 		} catch (SQLException e) {
-			throw new DAOException("Errore nell'inserire i dati", e);
+			throw new DAOException("Errore nell'inserire i dati - " + e.getMessage(), e);
 		}
 		return corsoDTO;
 	}
@@ -151,7 +151,7 @@ public class CorsoServiceImpl implements CorsoService {
 		try {
 			feedbacks = daoF.selectFeedbackPerCorso(idCorso);
 		} catch (SQLException e) {
-			throw new DAOException("Errore nel recuperare o leggere i dati", e);
+			throw new DAOException("Errore nel recuperare o leggere i dati - " + e.getMessage(), e);
 		}
 		return feedbacks;
 	}
@@ -166,7 +166,7 @@ public class CorsoServiceImpl implements CorsoService {
 		try {
 			daoC.update(corso);
 		} catch (SQLException e) {
-			throw new DAOException("Errore nell'aggiornare i dati", e);
+			throw new DAOException("Errore nell'aggiornare i dati - " + e.getMessage(), e);
 		}
 		return;
 	}
@@ -181,7 +181,7 @@ public class CorsoServiceImpl implements CorsoService {
 		try {
 			daoC.insert(corso);
 		} catch (SQLException e) {
-			throw new DAOException("Errore nell'inserire dati", e);
+			throw new DAOException("Errore nell'inserire dati - " + e.getMessage(), e);
 		}
 		return;
 	}
@@ -197,7 +197,7 @@ public class CorsoServiceImpl implements CorsoService {
 		try {
 			daoC.delete(codiceCorso);
 		} catch (Exception e) {
-			throw new DAOException("Errore nell'inserire i dati nel database", e);
+			throw new DAOException("Errore nell'inserire i dati nel database - " + e.getMessage(), e);
 		}
 		return;
 	}
@@ -213,7 +213,7 @@ public class CorsoServiceImpl implements CorsoService {
 		try {
 			corso = daoC.select(codiceCorso);
 		} catch (Exception e) {
-			throw new DAOException("Errore nell'inserire i dati nel database", e);
+			throw new DAOException("Errore nell'inserire i dati nel database - " + e.getMessage(), e);
 		}
 		return corso;
 	}
