@@ -161,11 +161,10 @@ public class EdizioneServiceImpl implements EdizioneService {
 		try {
 
 			ArrayList<EdizioneDTO> result = new ArrayList<EdizioneDTO>();
-			LocalDate from = LocalDate.now();
+			LocalDate from = LocalDate.of(anno, 1, 2);
 			LocalDate to = LocalDate.of(anno, 12, 31);
 			java.sql.Date da = java.sql.Date.valueOf(from);
 			java.sql.Date a = java.sql.Date.valueOf(to);
-
 			ArrayList<Edizione> edizioni = daoC.select(da, a);
 
 			for (Edizione edizione : edizioni) {

@@ -24,6 +24,16 @@ public class Edizione {
 		this.docente = docente;
 	}
 	
+	public Edizione(int idEdizione, int idCorso, Corso corso, Date dataInizio, int durata, String aula, String docente) {	
+		this.idEdizione = idEdizione;
+		this.idCorso=idCorso;
+		this.dataInizio = dataInizio;
+		this.durata = durata;
+		this.aula = aula;
+		this.docente = docente;
+		this.corso = corso;
+	}
+	
 	public Edizione(int idCorso, Date dataInizio, int durata, String aula, String docente) {	
 		this.idCorso=idCorso;
 		this.dataInizio = dataInizio;

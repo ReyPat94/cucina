@@ -2,12 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Set;
-import java.util.TreeSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,33 +12,32 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import dao.CalendarioDAO;
-import dao.CalendarioDAOImpl;
-import entity.Edizione;
+import dto.CorsoDTO;
+import dto.EdizioneDTO;
+import entity.Corso;
+import service.CorsoService;
+import service.CorsoServiceImpl;
+import service.EdizioneService;
+import service.EdizioneServiceImpl;
 
-@WebServlet("/JSONuserpageAnni")
-public class JSONuserpageAnni extends HttpServlet {
+@WebServlet("/JSONedizioniAnni")
+public class JSONedizioniAnniServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Set<String> anni = new TreeSet<>(); //set
-
-		try (CalendarioDAO daoC = new CalendarioDAOImpl()) {
-			ArrayList<Edizione> edizioni = daoC.select();
-			for (Edizione edit : edizioni) {
-
-				Date date = edit.getDataInizio();
-				DateFormat dateFormat = new SimpleDateFormat("yyyy");
-				String strDate = dateFormat.format(date); 
-
-				anni.add(strDate);
+		try  {
+			EdizioneService es = new EdizioneServiceImpl();
+			CorsoService cs = new CorsoServiceImpl();
+			int anno = Integer.parseInt(request.getParameter("anno"));
+			ArrayList<EdizioneDTO> edizioniDTO = es.visualizzaEdizioniPerAnno(anno);
+			for (int i = 0; i <edizioniDTO.size(); i++) {
+				Corso corso = cs.visualizzaCorso(edizioniDTO.get(i).getEdizione().getIdCorso());
+				edizioniDTO.get(i).getEdizione().setCorso(corso);
 			}
 			
-			
-
-			String JsonYears = new Gson().toJson(anni);
+			String JsonYears = new Gson().toJson(edizioniDTO);
 
 			PrintWriter out = response.getWriter();
 			response.setContentType("application/json");
