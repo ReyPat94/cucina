@@ -33,7 +33,7 @@ ${edizioneDTO.edizione.codice}, ${edizioneDTO.edizione.idCorso},  ${edizioneDTO.
 </ul>
 <br><br>
 
-<a href='/AccessoPagina?url=jsp/aggiungiEdizione.jsp'><button type='button'>Aggiungi nuova edizione</button></a>
+<a href='AccessoPagina?url=jsp/aggiungiEdizione.jsp'><button type='button'>Aggiungi nuova edizione</button></a>
 <br><br>
 
 
