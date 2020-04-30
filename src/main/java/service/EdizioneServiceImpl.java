@@ -41,7 +41,7 @@ public class EdizioneServiceImpl implements EdizioneService {
 		try {
 			daoC.insert(e);
 		} catch (SQLException se) {
-			throw new DAOException("Inserimento non riuscito", se);
+			throw new DAOException("Inserimento non riuscito - " + se.getMessage(), se);
 		}
 	}
 
@@ -53,7 +53,7 @@ public class EdizioneServiceImpl implements EdizioneService {
 		try {
 			daoC.update(e);
 		} catch (SQLException se) {
-			throw new DAOException("Modifica non riuscita", se);
+			throw new DAOException("Modifica non riuscita - " + se.getMessage(), se);
 		}
 	}
 
@@ -75,7 +75,7 @@ public class EdizioneServiceImpl implements EdizioneService {
 				throw new DAOException("Edizione non cancellabile, data di inizio successiva alla data odierna");
 			}
 		} catch (SQLException se) {
-			throw new DAOException("Cancellazione non riuscita", se);
+			throw new DAOException("Cancellazione non riuscita - " + se.getMessage(), se);
 		}
 	}
 
@@ -98,7 +98,7 @@ public class EdizioneServiceImpl implements EdizioneService {
 			}
 
 		} catch (SQLException se) {
-			throw new DAOException("Iscrizione non riuscita", se);
+			throw new DAOException("Iscrizione non riuscita - " + se.getMessage(), se);
 		}
 
 	}
@@ -111,7 +111,7 @@ public class EdizioneServiceImpl implements EdizioneService {
 		try {
 			daoIU.cancellaIscrizioneUtente(idEdizione, idUtente);
 		} catch (SQLException se) {
-			throw new DAOException("Cancellazione non riuscita", se);
+			throw new DAOException("Cancellazione non riuscita - " + se.getMessage(), se);
 		}
 
 	}
@@ -145,7 +145,7 @@ public class EdizioneServiceImpl implements EdizioneService {
 			return result;
 
 		} catch (SQLException se) {
-			throw new DAOException("Metodo fallito", se);
+			throw new DAOException("Metodo fallito - " + se.getMessage(), se);
 		}
 	}
 
@@ -177,7 +177,7 @@ public class EdizioneServiceImpl implements EdizioneService {
 			return result;
 
 		} catch (SQLException se) {
-			throw new DAOException("Metodo fallito", se);
+			throw new DAOException("Metodo fallito - " + se.getMessage(), se);
 		}
 	}
 
@@ -205,7 +205,7 @@ public class EdizioneServiceImpl implements EdizioneService {
 			return result;
 
 		} catch (SQLException se) {
-			throw new DAOException("Metodo fallito", se);
+			throw new DAOException("Metodo fallito - " + se.getMessage(), se);
 		}
 	}
 
@@ -227,7 +227,7 @@ public class EdizioneServiceImpl implements EdizioneService {
 		return new EdizioneDTO(edizione, feedbacks, utenti);
 		
 		} catch (SQLException se) {
-			throw new DAOException("Metodo fallito", se);
+			throw new DAOException("Metodo fallito - " + se.getMessage(), se);
 		}
 
 	}

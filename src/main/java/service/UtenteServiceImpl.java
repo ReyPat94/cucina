@@ -51,7 +51,7 @@ public class UtenteServiceImpl implements UtenteService {
 		try {
 			daoU.insert(u);
 		} catch (SQLException e) {
-			throw new DAOException("impossibile inserire l'utente", e);
+			throw new DAOException("Impossibile inserire l'utente - " + e.getMessage(), e);
 		}
 
 	}
@@ -73,7 +73,7 @@ public class UtenteServiceImpl implements UtenteService {
 				throw new IllegalArgumentException("Password sbagliata");
 			}
 		} catch (SQLException e) {
-			throw new DAOException("User doesn't exit", e);
+			throw new DAOException("User doesn't exit ", e);
 		}
 	}
 
@@ -89,7 +89,7 @@ public class UtenteServiceImpl implements UtenteService {
 		try {
 			daoU.delete(u);
 		} catch (SQLException se) {
-			throw new DAOException("Utente non cancellabile", se);
+			throw new DAOException("Utente non cancellabile - " + se.getMessage(), se);
 		}
 
 	}
