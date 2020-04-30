@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.CorsoService;
+import service.CorsoServiceImpl;
+
 @WebServlet("/AccessoPagina")
 public class AccessoPagina extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -17,6 +20,7 @@ public class AccessoPagina extends HttpServlet {
 			throws ServletException, IOException {
 
 		String url = request.getParameter("url");
+				
 		RequestDispatcher rdright = request.getRequestDispatcher("/WEB-INF/" + url);
 		rdright.forward(request, response);
 	}

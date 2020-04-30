@@ -16,8 +16,8 @@ import exceptions.ConnessioneException;
 
 public class CatalogoDAOImpl implements CatalogoDAO {
 
-	private static final String GET_CORSI_CATEGORIA = "SELECT id_corso, titolo, id_categoria, numeroMaxPartecipanti, costo, descrizione "
-			+ "FROM catalogo JOIN categoria USING(id_categoria) WHERE id_corso = ?";
+	private static final String GET_CORSI_CATEGORIA = "SELECT id_corso, titolo, id_categoria, numeroMaxPartecipanti, costo, e.descrizione "
+			+ "FROM catalogo e JOIN categoria USING(id_categoria) WHERE id_categoria = ?";
 
 	private Connection conn;
 
@@ -31,13 +31,12 @@ public class CatalogoDAOImpl implements CatalogoDAO {
 	@Override
 	public void insert(Corso corso) throws SQLException {
 		PreparedStatement stmt = conn.prepareStatement(
-				"INSERT into catalogo(id_corso, titolo, id_categoria, numeroMaxPartecipanti, costo, descrizione) values( ?, ?, ?, ?, ?, ?)");
-		stmt.setInt(1, corso.getCodice());
-		stmt.setString(2, corso.getTitolo());
-		stmt.setInt(3, corso.getIdCategoria());
-		stmt.setInt(4, corso.getMaxPartecipanti());
-		stmt.setDouble(5, corso.getCosto());
-		stmt.setString(6, corso.getDescrizione());
+				"INSERT into catalogo( titolo, id_categoria, numeroMaxPartecipanti, costo, descrizione) values( ?, ?, ?, ?, ?)");
+		stmt.setString(1, corso.getTitolo());
+		stmt.setInt(2, corso.getIdCategoria());
+		stmt.setInt(3, corso.getMaxPartecipanti());
+		stmt.setDouble(4, corso.getCosto());
+		stmt.setString(5, corso.getDescrizione());
 		stmt.executeUpdate();
 	}
 
