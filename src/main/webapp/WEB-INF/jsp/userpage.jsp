@@ -79,7 +79,7 @@ Visualizza i corsi per:
    function allYears(){
         $.getJSON("JSONuserpageAnni", function(anniList){
             $.each(anniList, function(index, item) {
-            $("<button type='button' name = 'choice' value = " + item + " >").text(item).appendTo(#anno));
+            $("<button type='button' name = 'choice' value = " + item + " >").text(item).appendTo("#anno"));
             })
         });
     }
