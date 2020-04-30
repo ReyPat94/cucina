@@ -5,6 +5,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<!--     <script defer> 
+   $('#options').change(function allYears(){
+        $.getJSON("/JSONuserpageAnni", function(anniList){
+            var ul = $("<div>").appendTo($("#anno"));
+            $.each(anniList, function(index, item) {
+            $("<button type='button' name = 'choice' value = " + item + " >").text(item).appendTo(ul);
+            })
+        });
+    });
+     </script> -->
+    
+      <script defer>
+   function allYears(){
+        $.getJSON("/cucina/jsp/JSONuserpageAnni", function(anniList){
+            var ul = $("<div>").appendTo($("#anno"));
+            $.each(anniList, function(index, item) {
+            $("<button type='button' name = 'choice' value = " + item + " >").text(item).appendTo(ul);
+            })
+        });
+    }
+    </script>
 </head>
 <body>
 <div>Weilà, bienvenido amigo!</div>
@@ -12,14 +33,20 @@
 <a href=""><button>Logout</button></a> <br>
 <a href=""><button>I corsi ai quali sei iscritta/o</button></a><br>
 
+<button onclick="allYears();">Anno</button>
+
 Visualizza i corsi per:
-<select id="view">
-  <option value="anno">Anno</option>
+<select id="options">
+  <option > Seleziona </option>
+  <option value="anno" onclick="allYears();">Anno</option>
   <option value="cat">Categoria</option>
   <option value="costo">Costo</option>
   <option value="altrox">Altro</option>
 </select>
 <br>
+
+<div id="anno"></div>						  	<%-- collega a "view" --%> 
+
 <hr>
 <p>Scheda corso selezionato con ajax</p> 
 <a href=""><button>Iscriviti</button></a>
@@ -41,12 +68,12 @@ Visualizza i corsi per:
 <!-- 7.	Visualizza scheda singolo corso -->
 <!-- 8.	Visualizza feedback di un singolo corso -->
 <!-- 9.	Visualizza info corso (docente, numero partecipanti ecc..) UGUALE ALLA 7-->   
-<!-- 10.	Visualizza lista dei corsi a calendario per categoria -->
-<!-- 11.	Visualizza lista dei corsi a calendario per range data -->
-<!-- 12.	Iscrizione ad un corso -->
-<!-- 13.	Annullamento iscrizione ad un corso -->
-<!-- 14.	Inserimento feedback corso (solo se si è iscritti al corso ed il corso è terminato) -->
-<!-- 15.	Modifica/cancella feedback -->
+<!-- 10. Visualizza lista dei corsi a calendario per categoria -->
+<!-- 11. Visualizza lista dei corsi a calendario per range data -->
+<!-- 12. Iscrizione ad un corso -->
+<!-- 13. Annullamento iscrizione ad un corso -->
+<!-- 14. Inserimento feedback corso (solo se si è iscritti al corso ed il corso è terminato) -->
+<!-- 15. Modifica/cancella feedback -->
 
 
 
