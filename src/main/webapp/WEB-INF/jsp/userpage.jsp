@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%--JavaScript --%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!--     <script defer> 
    $('#options').change(function allYears(){
@@ -17,14 +20,14 @@
      </script> -->
     
       <script defer>
-   function allYears(){
-        $.getJSON("/cucina/jsp/JSONuserpageAnni", function(anniList){
+  $(document).ready( function allYears(){
+        $.getJSON("/JSONuserpageAnni", function(anniList){
             var ul = $("<div>").appendTo($("#anno"));
             $.each(anniList, function(index, item) {
             $("<button type='button' name = 'choice' value = " + item + " >").text(item).appendTo(ul);
             })
         });
-    }
+    });
     </script>
 
 <title>bienvenido amigo!</title>
@@ -49,7 +52,7 @@ Visualizza i corsi per:
 </select>
 <br>
 
-<div id="anno"></div>						  	<%-- collega a "view" --%> 
+<div id="anno"></div>						  	<%-- collega a "options" --%> 
 
 <hr>
 <p>Scheda corso selezionato con ajax</p> 

@@ -9,6 +9,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
@@ -21,11 +22,8 @@ import entity.Edizione;
 import exceptions.ConnessioneException;
 
 @WebServlet("/JSONuserpageAnni")
-public class JSONuserpageAnni {
+public class JSONuserpageAnni extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-
-	@Resource(name = "jdbc/cucina")
-	private DataSource ds;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -35,7 +33,7 @@ public class JSONuserpageAnni {
 		try (CalendarioDAO daoC = new CalendarioDAOImpl()) {
 			ArrayList<Edizione> edizioni = daoC.select();
 			for (Edizione edit : edizioni) {
-				String anno = Integer.toString(edit.getDataInizio().getYear());
+				String anno = edit.getDataInizio().toString();
 				anni.add(anno);
 			}
 			String JsonYears = new Gson().toJson(anni);
