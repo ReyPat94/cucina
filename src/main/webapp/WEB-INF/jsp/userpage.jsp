@@ -35,12 +35,12 @@
 <button onclick="allYears();">Anno</button>
 
 Visualizza i corsi per:
-<select id="options" onchange="allYears()">
+<select id="options">
   <option > Seleziona </option>
   <option value="anno" onclick="allYears();">Anno</option>
   <option value="cat">Categoria</option>
   <option value="costo">Costo</option>
-  <option value="altrox">Altro</option>
+  <option value="altro">Altro</option>
 </select>
 <br>
 
@@ -76,12 +76,12 @@ Visualizza i corsi per:
 <!-- 15. Modifica/cancella feedback -->
 
 
-      <script>
+   <script>
    function allYears(){
         $.getJSON("JSONuserpageAnni", function(anniList){
-            var ul = $("<div>").appendTo($("#anno"));
             $.each(anniList, function(index, item) {
-            $("<button type='button' name = 'choice' value = " + item + " >").text(item).appendTo(ul);
+                console.log("ciaociao");
+            $("<button type='button' name = 'choice' value = " + item + " >").text(item).appendTo($("#anno"));
             })
         });
     }
