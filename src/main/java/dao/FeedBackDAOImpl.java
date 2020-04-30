@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import entity.Categoria;
 import entity.Feedback;
 import exceptions.ConnessioneException;
 
@@ -17,6 +16,13 @@ public class FeedBackDAOImpl implements FeedbackDAO {
 
 	public FeedBackDAOImpl() throws ConnessioneException {
 		conn = SingletonConnection.getInstance();
+	}
+	
+	
+	public void deleteFeedbacksEdizione(int idEdizione) throws SQLException {
+		ArrayList<Feedback> feedbacks = selectPerEdizione(idEdizione);
+		for (int i=0; i < feedbacks.size(); i++)
+			delete(feedbacks.get(i).getIdFeedback());
 	}
 
 	/*

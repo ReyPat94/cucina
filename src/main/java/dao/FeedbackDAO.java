@@ -12,6 +12,7 @@ public interface FeedbackDAO extends AutoCloseable {
 	void delete(int idFeedback) throws SQLException;
 	Feedback selectSingoloFeedback(String idUtente, int idEdizione) throws SQLException;
 	ArrayList<Feedback> selectPerEdizione(int idEdizione) throws SQLException;
+	void deleteFeedbacksEdizione(int idEdizione) throws SQLException;
 	ArrayList<Feedback> selectPerUtente(String idUtente) throws SQLException;
 	ArrayList<Feedback> selectFeedbackPerCorso(int idCorso) throws SQLException;
 	Feedback getFeedbackByID(int feedbackID) throws SQLException;

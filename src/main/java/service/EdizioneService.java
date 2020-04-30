@@ -16,5 +16,5 @@ public interface EdizioneService {
 	ArrayList<EdizioneDTO> visualizzaEdizioniPerCorso(int idCorso) throws DAOException;
 	EdizioneDTO visualizzaEdizione(int idEdizione) throws DAOException;
 	void iscriviUtente(int idEdizione, String idUtente) throws DAOException;
-	void cancellaIscrizioneUtente (int idEdizione, String idUtente) throws DAOException;
+	void cancellaIscrizioneUtente(int idEdizione, String idUtente) throws DAOException;
 }

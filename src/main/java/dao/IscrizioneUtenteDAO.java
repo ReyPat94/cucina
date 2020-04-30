@@ -13,4 +13,5 @@ public interface IscrizioneUtenteDAO extends AutoCloseable {
 	ArrayList<Edizione> selectIscrizioniUtente(String idUtente) throws SQLException;
 	ArrayList<Utente> selectUtentiPerEdizione(int idEdizione) throws SQLException;
 	int getNumeroIscritti(int idEdizione) throws SQLException;
+	void cancellaIscrizioniEdizione(int idEdizione) throws SQLException;
 }

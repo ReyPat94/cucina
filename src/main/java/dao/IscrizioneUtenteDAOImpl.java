@@ -16,6 +16,7 @@ import exceptions.ConnessioneException;
 public class IscrizioneUtenteDAOImpl implements IscrizioneUtenteDAO {
 	private static final String SET_ISCRIZIONE = "INSERT INTO iscritti (id_edizione, id_utente)" + " values(?, ?)";
 	private static final String DELETE_ISCRIZIONE = "DELETE FROM iscritti" + "WHERE id_edizione = ? and id_utente= ?";
+	private static final String DELETE_ISCRIZIONI_EDIZIONE = "DELETE FROM iscritti WHERE id_edizione = ?";
 	private static final String GET_UTENTE_EDIZIONI = "SELECT id_edizione,  id_corso, dataInizio, durata "
 			+ "aula, docente FROM iscritti "
 			+ "JOIN calendario USING(id_edizione)"
@@ -78,6 +79,21 @@ public class IscrizioneUtenteDAOImpl implements IscrizioneUtenteDAO {
 
 	}
 
+	@Override
+	public void cancellaIscrizioniEdizione(int idEdizione) throws SQLException {
+		try (PreparedStatement prepStmt = conn.prepareStatement(DELETE_ISCRIZIONI_EDIZIONE)) {
+			prepStmt.setInt(1, idEdizione);
+
+			int result = prepStmt.executeUpdate();
+			if (result == 0) {
+				throw new SQLException("Iscrizione non esistente");
+			}
+		} catch (SQLException se) {
+			se.printStackTrace();
+		}
+
+	}
+	
 	/*
 	 * lettura di tutte le edizioni a cui � iscritto un utente se l'utente non
 	 * esiste o non � iscritto a nessuna edizione si torna una lista vuota
