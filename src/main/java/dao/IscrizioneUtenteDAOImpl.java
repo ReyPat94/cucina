@@ -20,9 +20,9 @@ public class IscrizioneUtenteDAOImpl implements IscrizioneUtenteDAO {
 			+ "aula, docente FROM iscritti "
 			+ "JOIN calendario USING(id_edizione)"
 			+ " WHERE id_utente= ?";
-	private static final String GET_EDIZIONE_UTENTI = "SELECT id_utente,  password, nome, cognome"
-			+ "dataNascita, email, telefono FROM registrati " + "JOIN calendario USING(id_edizione)"
-			+ " WHERE id_edizione = ?";
+	private static final String GET_EDIZIONE_UTENTI = "SELECT id_utente,  password, nome, cognome, "
+			+ "dataNascita, email, telefono FROM registrati JOIN iscritti USING(id_utente) JOIN calendario "
+			+ "USING(id_edizione) WHERE id_edizione = ?";
 	private static final String COUNT_UTENTI_EDIZIONE = "SELECT COUNT(id_utente) FROM iscritti "
 			+ "GROUP BY id_edizione WHERE id_edizione = ?";
 

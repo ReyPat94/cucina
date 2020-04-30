@@ -19,6 +19,9 @@
 <hr>
 <br>
 						<form action='ModificaEdizione' method='get'> <!-- PATH CORRETTO -->
+						<div style="display:none">
+						<input id="codice" name="codice" value="${codice}" required>
+						</div>
 							<div>
 								<label for='idCorso'> ID Corso </label> <input id='idCorso'
 									value='${idCorso}' name='idCorso' required>

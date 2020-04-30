@@ -31,13 +31,14 @@ public class ModificaEdizioneServlet extends HttpServlet {
 
 				EdizioneDTO edizione = edS.visualizzaEdizione(edi);
 				Edizione ed = edizione.getEdizione();
-				request.setAttribute("idCorso", ed.getCodice());
+				request.setAttribute("idCorso", ed.getIdCorso());
 				request.setAttribute("dataDiInizio", ed.getDataInizio());
 				request.setAttribute("durata", ed.getDurata());
 				request.setAttribute("aula", ed.getAula());
 				request.setAttribute("docente", ed.getDocente());
+				request.setAttribute("codice", ed.getCodice());		
 				RequestDispatcher rdright = request.getRequestDispatcher("/WEB-INF/jsp/modificaEdizione.jsp");
-				request.setAttribute("Messaggio", messaggio);
+				request.setAttribute("messaggio", messaggio);
 				rdright.forward(request, response);
 				return;
 			} catch (Exception e) {
@@ -46,19 +47,20 @@ public class ModificaEdizioneServlet extends HttpServlet {
 
 		}
 
+		int codice = Integer.parseInt(request.getParameter("codice"));
 		int idCorso = Integer.parseInt(request.getParameter("idCorso"));
 		Date dataDiInizio = Date.valueOf(request.getParameter("dataDiInizio"));
 		int durata = Integer.parseInt(request.getParameter("durata"));
 		String aula = request.getParameter("aula");
 		String docente = request.getParameter("docente");
-		Edizione ed = new Edizione(idCorso, dataDiInizio, durata, aula, docente);
-		messaggio = "Edizione modificata con successo";
+		Edizione ed = new Edizione(codice, idCorso, dataDiInizio, durata, aula, docente);
 		try {
 			new EdizioneServiceImpl().modificaEdizione(ed);
+			messaggio = "Edizione modificata con successo";
 		} catch (Exception e) {
 			messaggio = e.getMessage();
 		} finally {
-			request.setAttribute("Messaggio", messaggio);
+			request.setAttribute("messaggio", messaggio);
 			RequestDispatcher rdright = request.getRequestDispatcher("/WEB-INF/jsp/adminpage.jsp");
 			rdright.forward(request, response);
 		}
