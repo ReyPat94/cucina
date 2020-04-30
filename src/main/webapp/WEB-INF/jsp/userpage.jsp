@@ -3,8 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 <!--     <script defer> 
    $('#options').change(function allYears(){
         $.getJSON("/JSONuserpageAnni", function(anniList){
@@ -26,9 +26,13 @@
         });
     }
     </script>
+
+<title>bienvenido amigo!</title>
+
 </head>
 <body>
 <div>Weilà, bienvenido amigo!</div>
+
 
 <a href=""><button>Logout</button></a> <br>
 <a href=""><button>I corsi ai quali sei iscritta/o</button></a><br>
@@ -59,6 +63,7 @@ Visualizza i corsi per:
 <p>Calendario</p> 
 <a href=""><button>Iscriviti</button></a>
 <hr>
+
 <a href=""><button>Modifica dati utente</button></a>
 
 
