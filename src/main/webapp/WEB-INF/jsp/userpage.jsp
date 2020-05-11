@@ -42,7 +42,6 @@ Visualizza i corsi per:
   <option value="altro">Altro</option>
 </select>
 <br>
-
 <div id="anno"></div>						  	<%-- collega a "options" --%> 
 
 <hr>
@@ -79,7 +78,7 @@ Visualizza i corsi per:
    function allYears(){
         $.getJSON("JSONuserpageAnni", function(anniList){
             $.each(anniList, function(index, item) {
-            $("<button type='button' name = 'choice' value = " + item + " >").text(item).appendTo("#anno");
+            $("<button type='button' name = 'choice' value = " + item + " >").text(item).appendTo($("#anno"));
             })
         });
     }
