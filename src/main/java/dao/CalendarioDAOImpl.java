@@ -270,9 +270,9 @@ public class CalendarioDAOImpl implements CalendarioDAO {
 	public ArrayList<Edizione> select(java.sql.Date da, java.sql.Date a) throws SQLException {
 		ArrayList<Edizione> result = new ArrayList<>();
 
-		PreparedStatement pstmt = conn.prepareStatement("Select * FROM calendiario WHERE dataInizio betweeen ? and ?");
+		PreparedStatement pstmt = conn.prepareStatement("Select * FROM calendario WHERE dataInizio between ? and ?");
 		pstmt.setDate(1, da);
-		pstmt.setDate(1, a);
+		pstmt.setDate(2, a);
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
 			result.add(new Edizione(rs.getInt(1), rs.getInt(2), rs.getDate(3), rs.getInt(4), rs.getString(5),
